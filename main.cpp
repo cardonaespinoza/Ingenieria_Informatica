@@ -16,11 +16,22 @@ string operacion(string mensaje)
         codigo = (int) mensaje[contador];
 
         //comparacion para excluir los caracteres que no sean letras
-        if ((codigo>96) and (codigo<123))
+        //para letras mayusculas
+        if  ((codigo>64) and (codigo<91))
+        {
+          //se le suman 3 posiciones para cumplir con el cifrado cesar, desplazamiento de carateres
+          mensaje[contador]=(char) (codigo)+3;
+        }
 
-        //se opera el codigo al restarle 32 que es la diferencia existente entre mayusculas y minusculas
-        //se le suman 3 posiciones para cumplir con el cifrado cesar, desplazamiento de carateres
-        mensaje[contador]=(char) (codigo-32)+3;
+        //para letras minusculas
+        if  ((codigo>96) and (codigo<123))
+        {
+            //se opera el codigo al restarle 32 que es la diferencia existente entre mayusculas y minusculas
+            //se le suman 3 posiciones para cumplir con el cifrado cesar, desplazamiento de carateres
+           mensaje[contador]=(char) (codigo-32)+3;
+        }
+
+
 
         //hace el corrimiento
         contador++;
